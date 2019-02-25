@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="Layout/main">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+
+    <ol class="breadcrumb">
+        <li><a href="/">主页</a></li>
+        <li><a href="/Contents/category">列表</a></li>
+    </ol>
+
+    <div class="alert alert-info" role="alert">列表</div>
+
+    <div class="jumbotron">
+        <h1>列表</h1>
+    </div>
+
+</th:block>
+</body>
+</html>

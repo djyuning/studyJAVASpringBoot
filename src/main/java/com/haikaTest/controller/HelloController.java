@@ -4,30 +4,36 @@ import com.haikaTest.beans.User;
 import com.haikaTest.beans.Response;
 import com.haikaTest.service.UserService;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import groovy.util.logging.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@Log4j
 @RestController
 @RequestMapping(value = "/api/user")
-public class HelloController {
+public class HelloController extends BaseController {
     @Autowired
     private UserService userService;
 
-    private Logger logger = LoggerFactory.getLogger(HelloController.class);
-
     // 获取全部用户
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public Response getAll() {
+    public Response getAll(HttpServletRequest request) {
         Response<User[]> res = new Response<>();
+
+        HttpSession session = request.getSession();
+        if (session.getAttribute("uid") == null) {
+            System.out.println("请登录");
+        }
+
         User[] users = userService.findAll();
         res.setData(users);
         return res;

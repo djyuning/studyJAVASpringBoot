@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org"
-       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-       layout:decorate="layout/main">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="Layout/main">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>首页 - Spring Boot & thymeleaf</title>
+    <style type="text/css">
+        td a {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 
@@ -43,7 +47,9 @@
             <th:block th:if="${#lists.isEmpty(users) == false}">
                 <tr th:each="user,stat : ${users}">
                     <td class="text-center" th:text="${stat.index +'-'+ user.id }"></td>
-                    <td class="text-center" th:text="${user.username}"></td>
+                    <td class="text-center">
+                        <a th:href="@{'/user-edit?id='+ ${user.id}}" th:text="${user.username}"></a>
+                    </td>
                     <td class="text-center" th:text="${user.password}"></td>
                     <td class="text-center" th:text="${user.mobile}"></td>
                     <td class="text-center" th:text="${user.email}"></td>
