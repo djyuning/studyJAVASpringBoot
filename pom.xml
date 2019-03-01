@@ -9,10 +9,10 @@
         <version>2.1.3.RELEASE</version>
         <relativePath/>
     </parent>
-    <groupId>com.haikaTest</groupId>
-    <artifactId>demo</artifactId>
+    <groupId>me.djyuning</groupId>
+    <artifactId>djyuning</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo</name>
+    <name>djyuning</name>
     <description>Spring Boot 学习小项目</description>
 
     <properties>
@@ -35,19 +35,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-
-        <!--
-            Spring Boot 默认使用 thymeleaf 模板引擎.
-         -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>nz.net.ultraq.thymeleaf</groupId>
-            <artifactId>thymeleaf-layout-dialect</artifactId>
-            <version>2.3.0</version>
         </dependency>
 
         <!-- Spring Boot Mybatis 依赖 -->
@@ -86,6 +73,7 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.8.1</version>
         </dependency>
+
     </dependencies>
 
     <build>
