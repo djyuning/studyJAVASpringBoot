@@ -3,20 +3,84 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="Layout/main">
 <head>
-    <meta charset="UTF-8">
-    <title th:text="${page.title}"></title>
+  <meta charset="UTF-8">
+  <title th:text="${pageInfo.title}"></title>
 </head>
+
 <body>
 <th:block layout:fragment="content">
 
-    <div class="alert alert-info" role="alert">全栈之路最后一站</div>
+  <!-- carousel-main start -->
+  <div class="swiper-container carousel-main" role="swiperMain">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" style="background-color: #182434;">
+        <div class="item-wrap">
+          <a class="container item">
+            <span class="inner">
+              <img
+                src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551544030462&di=f238b37bd4d3101b43e20ad98b084320&imgtype=0&src=http%3A%2F%2Fwww.itheima.com%2Fspecial%2Fphonestack%2Fimages%2Fbox9_d1.jpg"/>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+  <!-- carousel-main end -->
 
-    <div class="jumbotron">
-        <h1>Spring Boot & thymeleaf</h1>
-        <p>2019 年，各大编程语言都已经拥有了面向未来的语法和架构思想，各种灵活的框架也层出不穷，让我们从 Spring Boot 开始，一步步完成全栈开发的最后一站吧！</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">大师之路</a></p>
+  <div class="container">
+
+    <div class="article-list">
+
+      <div class="item" th:each="article : ${articles}">
+        <div class="inner">
+
+          <div class="cover">
+            <a th:href="${'/Article/detail/'+ article}"><img
+              src="https://shp.qpic.cn/cfwebcap/0/88b9a2c7a53f70ef5cca624ade9b8d8b/0/?width=840&height=840"/></a>
+          </div>
+
+          <h2><a href="#">王者荣耀-孙尚香末日机甲皮肤故事</a></h2>
+
+          <div class="attr">
+            <a href="#">分类名称</a>
+            <a href="#">作者</a>
+            <span>2019-03-02</span>
+          </div>
+
+        </div>
+      </div>
+
     </div>
 
+  </div>
+
 </th:block>
+
+<th:block layout:fragment="extendScript">
+  <script type="text/javascript">
+    (function () {
+      'use strict';
+
+      new Swiper('[role="swiperMain"]', {
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination'
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
+        scrollbar: {
+          el: '.swiper-scrollbar'
+        }
+      });
+
+    })();
+  </script>
+</th:block>
+
 </body>
 </html>

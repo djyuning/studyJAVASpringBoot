@@ -1,6 +1,11 @@
 package me.djyuning.blog.beans;
 
-public class SessionApp {
+import java.io.Serializable;
+
+public class SessionApp implements Serializable {
+    // 序列化ID
+    private static final long serialVersionUID = 8087173753716322056L;
+
     // 站点名称
     private String title;
     // 站点关键字
@@ -81,4 +86,7 @@ public class SessionApp {
     public void setCopyrightValidity(String copyrightValidity) {
         this.copyrightValidity = copyrightValidity;
     }
+
+
+
 }

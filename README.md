@@ -48,8 +48,6 @@
 - 使用 Maven 的 Lifecycle - package 打包工程为 *.jar 文件
 - 使用 docker 部署项目
 
-## Maven 配置 pom.xml
-
 ## thymeleaf
 
 - 基础语法：变量、列表、条件

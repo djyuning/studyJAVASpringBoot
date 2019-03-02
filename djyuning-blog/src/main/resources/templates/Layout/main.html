@@ -2,40 +2,169 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title th:text="${app.title}"></title>
-    <link rel="shortcut icon" th:href="@{/favicon.ico}" />
-    <link rel="stylesheet" th:href="@{/css/main.css}" />
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title th:text="${pageInfo.title}"></title>
+  <link rel="shortcut icon" th:href="@{/favicon.ico}"/>
+
+  <link rel="stylesheet" th:href="@{'/vendor/swiper/4.5.0/css/swiper.min.css'}"/>
+  <link rel="stylesheet" th:href="@{'/css/main.css?ver=201932153436'}"/>
+
+  <th:block layout:fragment="extendStyle"></th:block>
+
 </head>
 <body>
 
-<h1 th:text="${app.title}"></h1>
+<div class="header-wrap">
+  <div class="header">
+
+    <a class="logo" href="/" th:text="${app.title}"></a>
+
+    <div class="nav">
+      <ul>
+        <li class="current">
+          <a href="/">
+            <span>首页</span>
+          </a>
+        </li>
+        <li>
+          <a href="/category">
+            <span>Design</span>
+            <i class="icon arrow"></i>
+          </a>
+          <div class="sub">
+            <ul>
+              <li>
+                <a href="/category/design">
+                  <span>设计</span>
+                </a>
+              </li>
+              <li>
+                <a href="/category/development">
+                  <span>开发</span>
+                  <i class="icon arrow"></i>
+                </a>
+                <div class="sub">
+                  <ul>
+                    <li>
+                      <a href="/category/design">
+                        <span>后端</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/category/development">
+                        <span>前端</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/category/other">
+                        <span>App</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="/category/other">
+                  <span>其他</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="/category">
+            <span>Development</span>
+            <i class="icon arrow"></i>
+          </a>
+          <div class="sub">
+            <ul>
+              <li>
+                <a href="/category/design">
+                  <span>设计</span>
+                </a>
+              </li>
+              <li>
+                <a href="/category/development">
+                  <span>开发</span>
+                  <i class="icon arrow"></i>
+                </a>
+                <div class="sub">
+                  <ul>
+                    <li>
+                      <a href="/category/design">
+                        <span>后端</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/category/development">
+                        <span>前端</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/category/other">
+                        <span>App</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="/category/other">
+                  <span>其他</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="/about">
+            <span>关于我</span>
+          </a>
+        </li>
+        <li>
+          <a href="/contact">
+            <span>联系方式</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
 
 <div class="body-wrap">
-    <div class="container body-wrap">
-        <th:block layout:fragment="content"></th:block>
-    </div>
+  <th:block layout:fragment="content"></th:block>
 </div>
 
 <div class="footer-wrap">
-    <div class="container footer">
+  <div class="container footer">
 
-        <ul class="stack">
-            <li><a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank">JAVA 8</a></li>
-            <li><a href="https://spring.io/projects/spring-boot/" target="_blank">Spring Boot 2.1.3</a></li>
-            <li><a href="https://www.thymeleaf.org/" target="_blank">Thymeleaf 3.0.11</a></li>
-            <li><a href="https://www.docker.com/" target="_blank">Docker</a></li>
-        </ul>
+    <ul class="stack">
+      <li><a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html"
+             target="_blank">JAVA 8</a></li>
+      <li><a href="https://spring.io/projects/spring-boot/" target="_blank">Spring Boot 2.1.3</a></li>
+      <li><a href="https://www.thymeleaf.org/" target="_blank">Thymeleaf 3.0.11</a></li>
+      <li><a href="https://www.docker.com/" target="_blank">Docker</a></li>
+    </ul>
 
-        <p class="copyright"><span th:text="${copyright}"></span> &copy; Copyright <th:block th:text="${#dates.format(new java.util.Date().getTime(), 'yyyy')}"></th:block> 自豪的采用<a href="https://spring.io/projects/spring-boot/">Spring Boot</a>.</p>
+    <p class="copyright"><span th:text="${app.copyright}"></span> &copy; Copyright<span
+      th:text="${app.copyrightValidity}"></span>
+      自豪的采用<a href="https://spring.io/projects/spring-boot/">Spring Boot</a>.
+    </p>
 
-    </div>
+  </div>
 </div>
 
-<script type="text/javascript" th:src="@{/vendor/jQuery/1.12.4/jquery.min.js}"></script>
-<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<a class="backtop" href="javascript:void(0);" title="回到顶部">回到顶部</a>
+
+<script type="text/javascript" th:src="@{'/vendor/jQuery/1.12.4/jquery.min.js'}"></script>
+<script type="text/javascript" th:src="@{'/vendor/easing/1.3/jquery.easing.min.js'}"></script>
+<script type="text/javascript" th:src="@{'/vendor/swiper/4.5.0/js/swiper.min.js'}"></script>
+
+<script type="text/javascript" th:src="@{'/js/main.js'}"></script>
+
 <th:block layout:fragment="extendScript"></th:block>
 
 </body>

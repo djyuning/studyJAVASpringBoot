@@ -3,8 +3,12 @@ package me.djyuning.blog.controller;
 import me.djyuning.blog.beans.SessionApp;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,14 +21,22 @@ public class BaseController {
      * 应用初始化检测
      */
     public void appInit(HttpServletRequest request) {
-        SessionApp _sessionApp = (SessionApp) request.getSession().getAttribute("app");
-        if (_sessionApp == null) {
+        String _sessionAppName = "app";
+        HttpSession session = request.getSession();
+
+        this.sessionApp = (SessionApp) session.getAttribute(_sessionAppName);
+
+        if (this.sessionApp == null) {
             this.sessionApp = new SessionApp();
             this.sessionApp.setTitle("djyuning 的博客");
             this.sessionApp.setKeyword("博客,妖刀,djyuning,前端,设计师,全栈");
-            request.getSession().setAttribute("app", this.sessionApp);
-            System.out.println(this.sessionApp);
+            this.sessionApp.setCopyright("tPeriod Tech");
+            this.sessionApp.setCopyrightValidity("2011 - "+ new SimpleDateFormat("yyyy").format(new Date()));
+
+            session.setMaxInactiveInterval(30);
+            session.setAttribute(_sessionAppName, this.sessionApp);
         }
+
     }
 
     /**
@@ -36,9 +48,11 @@ public class BaseController {
      */
     public void pageInit(HttpServletRequest request, Map page, Model model) {
         this.appInit(request);
+
         Map<String, String> pageInfo = new HashMap<>();
         pageInfo.put("title", page.get("title") + " - " + this.sessionApp.getTitle());
+
         model.addAttribute("app", this.sessionApp);
-        model.addAttribute("page", pageInfo);
+        model.addAttribute("pageInfo", pageInfo);
     }
 }
