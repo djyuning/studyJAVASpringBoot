@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="Layout/main">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${pageInfo.title}"></title>
+</head>
+
+<body>
+<th:block layout:fragment="content">
+
+  <section class="call-to-action bg-1 section-sm overly">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="block">
+            <h2>We design delightful digital experiences.</h2>
+            <p>Read more about what we do and our philosophy of design. Judge for yourself The work and results <br>
+              we’ve achieved for other clients, and meet our highly experienced Team who just love to design.</p>
+            <a class="btn btn-main btn-solid-border" href="#">Tell Us Your Story</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-wrapper" th:if="${#lists.isEmpty(articles)==false}">
+    <div class="container">
+      <div class="row">
+
+        <div class="portfolio-menu">
+          <ul>
+            <li class="filter">
+              <a th:href="${'/Category'}">全部</a>
+            </li>
+            <li class="filter" th:each="category : ${categories}">
+              <a th:href="${'/Category/'+ category.alias}" th:text="${category.name}"></a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="row">
+
+        <div class="col-md-6" th:each="article : ${articles}">
+          <div class="post">
+            <div class="post-thumb">
+              <a th:href="${'/Article/detail/'+ article.id}">
+                <img class="img-responsive"
+                     th:src="${article.cover}"
+                     th:alt="${article.title}"/>
+              </a>
+            </div>
+            <h3 class="post-title">
+              <a th:href="${'/Article/detail/'+ article.id}" th:text="${article.title}"></a>
+            </h3>
+            <div class="post-meta">
+              <ul>
+                <li>
+                  <i class="ion-calendar"></i>
+                  <span th:text="${article.created_at}"></span>
+                </li>
+                <li>
+                  <i class="ion-android-people"></i>
+                  <a th:href="${'/Author/'+ article.author.username}"
+                     th:text="${article.author.username}"></a>
+                </li>
+                <li>
+                  <i class="ion-pricetags"></i>
+                  <a th:href="${'/Category/'+ article.category.alias}"
+                     th:text="${article.category.name}"></a>
+                </li>
+              </ul>
+            </div>
+            <div class="post-content">
+              <p th:text="${article.overview}"></p>
+              <a th:href="${'/Article/detail/'+ article.id}" class="btn btn-main">阅读更多</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-center">
+        <ul class="pagination post-pagination">
+          <li>
+            <a>上一页</a>
+          </li>
+          <li>
+            <a href="#">下一页</a>
+          </li>
+          <li>
+            <a th:text="${'共 '+ articlesPage.total +' 条数据 / '+ articlesPage.pages +' 页'}"></a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+</th:block>
+
+</body>
+</html>

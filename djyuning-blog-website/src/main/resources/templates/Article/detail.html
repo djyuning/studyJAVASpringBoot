@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="Layout/main">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${pageInfo.title}"></title>
+</head>
+
+<body>
+<th:block layout:fragment="content">
+
+  <section class="call-to-action bg-1 section-sm overly">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="block">
+            <h2>We design delightful digital experiences.</h2>
+            <p>Read more about what we do and our philosophy of design. Judge for yourself The work and results <br>
+              we’ve achieved for other clients, and meet our highly experienced Team who just love to design.</p>
+            <a class="btn btn-main btn-solid-border" href="#">Tell Us Your Story</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="post post-single">
+
+            <h2 class="post-title" th:text="${article.title}"></h2>
+
+            <div class="post-meta">
+              <ul>
+                <li>
+                  <i class="ion-calendar"></i>
+                  <span th:text="${article.created_at}"></span>
+                </li>
+                <li>
+                  <i class="ion-android-people"></i>
+                  <a th:href="${'/Author/'+ article.author.username}"
+                     th:text="${article.author.username}"></a>
+                </li>
+                <li>
+                  <i class="ion-pricetags"></i>
+                  <a th:href="${'/Category/'+ article.category.alias}"
+                     th:text="${article.category.name}"></a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="post-thumb">
+              <a href="#">
+                <img class="img-responsive"
+                     th:src="${article.cover}"
+                     th:alt="${article.title}"/>
+              </a>
+            </div>
+
+            <div class="post-content post-excerpt" th:utext="${article.contents}"></div>
+
+            <div class="post-comments">
+              <h3 class="post-sub-heading">共有 10 条评论</h3>
+              <ul class="media-list comments-list m-bot-50 clearlist">
+
+                <li class="media">
+
+                  <a class="pull-left" href="#">
+                    <img class="media-object comment-avatar"
+                         src="http://1.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=200&r=pg&d=mp" alt=""
+                         width="50"
+                         height="50">
+                  </a>
+
+                  <div class="media-body">
+                    <div class="comment-info">
+                      <h4 class="comment-author">
+                        <a href="#">Mondo</a>
+
+                      </h4>
+                      <time>2019-3-3 17:16:32</time>
+                      <a class="comment-button" href="#"><i class="tf-ion-chatbubbles"></i>Reply</a>
+                    </div>
+
+                    <p>具体可以参考el-element-admin，已经有完整的解决方案了</p>
+
+                    <!--  second level Comment start-->
+                    <div class="media">
+
+                      <a class="pull-left" href="#">
+                        <img class="media-object comment-avatar"
+                             src="http://1.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=200&r=pg&d=mp" alt=""
+                             width="50"
+                             height="50">
+                      </a>
+
+                      <div class="media-body">
+
+                        <div class="comment-info">
+                          <h4 class="comment-author">
+                            <a href="#">Senorita</a>
+                          </h4>
+                          <time>July 02, 2015, at 11:34</time>
+                          <a class="comment-button" href="#"><i class="tf-ion-chatbubbles"></i>Reply</a>
+                        </div>
+
+                        <p>路由通过 addRoutes 动态添加</p>
+
+
+                        <!-- third level Comment start -->
+                        <div class="media">
+
+                          <a class="pull-left" href="#">
+                            <img class="media-object comment-avatar"
+                                 src="http://1.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=200&r=pg&d=mp"
+                                 alt="" width="50"
+                                 height="50">
+                          </a>
+
+                          <div class="media-body">
+
+                            <div class="comment-info">
+                              <h4 class="comment-author">
+                                <a href="#">Senorita</a>
+                              </h4>
+                              <time>July 02, 2015, at 11:34</time>
+                              <a class="comment-button" href="#"><i class="tf-ion-chatbubbles"></i>Reply</a>
+                            </div>
+
+                            <p>
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend
+                              eleifend.
+                            </p>
+
+
+                          </div>
+
+                        </div>
+                        <!-- third level Comment end -->
+
+                      </div>
+
+                    </div>
+                    <!-- second level Comment end -->
+
+                  </div>
+
+                </li>
+                <!-- End Comment Item -->
+
+                <!-- Comment Item start-->
+                <li class="media">
+
+                  <a class="pull-left" href="#">
+                    <img class="media-object comment-avatar"
+                         src="http://1.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=200&r=pg&d=mp" alt=""
+                         width="50"
+                         height="50">
+                  </a>
+
+                  <div class="media-body">
+
+                    <div class="comment-info">
+                      <h4 class="comment-author">
+                        <a href="#">Jonathon Andrew</a>
+                      </h4>
+                      <time>July 02, 2015, at 11:34</time>
+                      <a class="comment-button" href="#"><i class="tf-ion-chatbubbles"></i>Reply</a>
+                    </div>
+
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend
+                      eleifend.
+                    </p>
+
+                  </div>
+
+                </li>
+                <!-- End Comment Item -->
+
+                <!-- Comment Item start-->
+                <li class="media">
+
+                  <a class="pull-left" href="#">
+                    <img class="media-object comment-avatar"
+                         src="http://1.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=200&r=pg&d=mp" alt=""
+                         width="50"
+                         height="50">
+                  </a>
+
+                  <div class="media-body">
+
+                    <div class="comment-info">
+                      <h4 class="comment-author">
+                        <a href="#">Jonathon Andrew</a>
+                      </h4>
+                      <time>July 02, 2015, at 11:34</time>
+                      <a class="comment-button" href="#"><i class="tf-ion-chatbubbles"></i>Reply</a>
+                    </div>
+
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend
+                      eleifend.
+                    </p>
+
+                  </div>
+
+                </li>
+                <!-- End Comment Item -->
+
+              </ul>
+            </div>
+
+            <div class="post-comments-form">
+              <h3 class="post-sub-heading">我来说两句</h3>
+              <form method="post" action="#" id="form" role="form">
+
+                <div class="row">
+
+                  <div class="col-md-6 form-group">
+                    <input type="text" name="name" id="name" class="form-control" placeholder="昵称" maxlength="100"
+                           required/>
+                  </div>
+
+                  <div class="col-md-6 form-group">
+                    <input type="email" name="email" id="email" class=" form-control" placeholder="电子邮件"
+                           maxlength="100" required/>
+                  </div>
+
+                  <div class="form-group col-md-12">
+                    <input type="text" name="website" id="website" class=" form-control" placeholder="个人网站"
+                           maxlength="100"/>
+                  </div>
+
+                  <div class="form-group col-md-12">
+                    <textarea name="text" id="text" class=" form-control" rows="6" placeholder="评论内容···"
+                              maxlength="400"></textarea>
+                  </div>
+
+                  <div class="form-group col-md-12">
+                    <button type="submit" class="btn btn-main ">
+                      发布评论
+                    </button>
+                  </div>
+
+                </div>
+
+              </form>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</th:block>
+
+</body>
+</html>

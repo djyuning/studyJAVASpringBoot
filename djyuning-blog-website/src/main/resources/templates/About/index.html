@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="Layout/main">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${pageInfo.title}"></title>
+</head>
+<body>
+<th:block layout:fragment="content">
+
+  <section class="call-to-action bg-1 section-sm overly">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="block">
+            <h2>We design delightful digital experiences.</h2>
+            <p>Read more about what we do and our philosophy of design. Judge for yourself The work and results <br>
+              we’ve achieved for other clients, and meet our highly experienced Team who just love to design.</p>
+            <a class="btn btn-main btn-solid-border" href="#">Tell Us Your Story</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="about-img">
+            <img class="img-responsive" th:src="${'/images/about.jpg?v=201933181630'}"/>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h2 class="mt-40">We strive to be the best and <br> make awesome work.</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius enim, accusantium repellat ex autem numquam
+            iure officiis facere vitae itaque.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam qui vel cupiditate exercitationem, ea fuga
+            est velit nulla culpa modi quis iste tempora non, suscipit repellendus labore voluptatem dicta amet? Lorem
+            ipsum dolor sit amet, consectetur adipisicing elit. Provident, neque!</p>
+          <a href="#" class="btn btn-small mt-20">Download Company Profile</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-feature bg-dark section dark-service">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="title">
+            <h2>We are indepented Design & Development Agency</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="service-item">
+            <i class="ion-ios-color-filter-outline"></i>
+            <h4>UI 视觉界面设计</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-item">
+            <i class="ion-ios-unlocked-outline"></i>
+            <h4>网站应用开发</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-item">
+            <i class="ion-ios-game-controller-b-outline"></i>
+            <h4>移动应用开发</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-item">
+            <i class="ion-ios-mic-outline"></i>
+            <h4>小程序和公众号</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-item">
+            <i class="ion-ios-lightbulb-outline"></i>
+            <h4>移动 H5 设计开发</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-item">
+            <i class="icon ion-coffee"></i>
+            <h4>H5 小游戏</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</th:block>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="Layout/main">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${pageInfo.title}"></title>
+</head>
+<body>
+<th:block layout:fragment="content">
+
+  <section class="call-to-action bg-1 section-sm overly">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="block">
+            <h2>We design delightful digital experiences.</h2>
+            <p>Read more about what we do and our philosophy of design. Judge for yourself The work and results <br>
+              we’ve achieved for other clients, and meet our highly experienced Team who just love to design.</p>
+            <a class="btn btn-main btn-solid-border" href="#">Tell Us Your Story</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-404">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <a href="index.html">
+            <img th:src="${'/images/logo.png'}" th:alt="${app.title}"/>
+          </a>
+          <h1 th:text="${status.code}"></h1>
+          <h2 th:text="${status.title}"></h2>
+          <p th:text="${status.description}"></p>
+          <a href="/" class="btn btn-main">
+            <i class="tf-ion-android-arrow-back"></i> 回首页
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</th:block>
+</body>
+</html>
