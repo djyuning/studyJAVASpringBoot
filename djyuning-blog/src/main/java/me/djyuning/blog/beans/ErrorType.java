@@ -1,4 +1,4 @@
-package me.djyuning.blog.entity;
+package me.djyuning.blog.beans;
 
 public class ErrorType {
     // 代码

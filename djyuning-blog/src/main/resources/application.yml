@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: djyuning-blog-website
+  # 数据库配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/springboot_first?useUnicode=true&characterEncoding=utf8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+  # SESSION
+  session:
+    store-type: redis
+  # redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+# Mybatis 配置
+mybatis:
+  type-aliases-package: me.djyuning.blog
+  mapper-locations: classpath\:mapper/*.xml

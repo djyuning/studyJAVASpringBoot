@@ -1,7 +1,7 @@
 package me.djyuning.blog.website.controller;
 
 
-import me.djyuning.blog.beans.Contents;
+import me.djyuning.blog.entity.Contents;
 import me.djyuning.blog.service.ContentsService;
 
 import com.github.pagehelper.PageHelper;
@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -28,7 +27,16 @@ public class IndexController extends BaseController {
 
     // 首页
     @GetMapping("")
-    public String index(HttpServletRequest request, Model model) {
+    public String index(HttpServletRequest request,
+                        @RequestParam(name = "p", required = false) String p,
+                        Model model) {
+
+        // 修正分页
+        if (p == null || p.equals("")) {
+            p = "1";
+        }
+        int pageNow = Integer.valueOf(p);
+        model.addAttribute("pageNow", pageNow);
 
         // 当前页面信息
         Map<String, String> page = new HashMap<>();
@@ -41,7 +49,7 @@ public class IndexController extends BaseController {
         super.pageInit(request, page, model);
 
         // 获取全部文章
-        PageHelper.startPage(1, 10);
+        PageHelper.startPage(pageNow, 1);
         List<Contents> articles = contentsService.all();
 
         Page articlesPage = (Page) articles;

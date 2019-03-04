@@ -1,6 +1,6 @@
 package me.djyuning.blog.website.controller;
 
-import me.djyuning.blog.entity.ErrorType;
+import me.djyuning.blog.beans.ErrorType;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;

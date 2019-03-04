@@ -1,4 +1,4 @@
-package me.djyuning.blog.beans;
+package me.djyuning.blog.entity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

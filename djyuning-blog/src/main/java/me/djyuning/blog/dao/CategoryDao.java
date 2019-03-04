@@ -1,6 +1,6 @@
 package me.djyuning.blog.dao;
 
-import me.djyuning.blog.beans.Category;
+import me.djyuning.blog.entity.Category;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;

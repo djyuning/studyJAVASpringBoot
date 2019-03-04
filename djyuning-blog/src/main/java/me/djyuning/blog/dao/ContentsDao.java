@@ -1,6 +1,6 @@
 package me.djyuning.blog.dao;
 
-import me.djyuning.blog.beans.Contents;
+import me.djyuning.blog.entity.Contents;
 
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;

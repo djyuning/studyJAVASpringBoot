@@ -1,4 +1,4 @@
-package me.djyuning.blog.entity;
+package me.djyuning.blog.beans;
 
 import java.io.Serializable;
 

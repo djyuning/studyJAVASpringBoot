@@ -1,12 +1,9 @@
-package me.djyuning.blog.beans;
+package me.djyuning.blog.entity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Contents {
-
-    // 表名
-    public static final String TABLE_NAME = "contents";
 
     // ID
     private int id;

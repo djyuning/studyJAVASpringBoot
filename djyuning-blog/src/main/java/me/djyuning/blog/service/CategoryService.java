@@ -1,6 +1,6 @@
 package me.djyuning.blog.service;
 
-import me.djyuning.blog.beans.Category;
+import me.djyuning.blog.entity.Category;
 import me.djyuning.blog.dao.CategoryDao;
 
 import org.springframework.beans.factory.annotation.Autowired;

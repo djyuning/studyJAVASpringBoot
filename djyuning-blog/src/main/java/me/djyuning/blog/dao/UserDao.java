@@ -1,6 +1,7 @@
 package me.djyuning.blog.dao;
 
-import me.djyuning.blog.beans.User;
+import me.djyuning.blog.entity.User;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;

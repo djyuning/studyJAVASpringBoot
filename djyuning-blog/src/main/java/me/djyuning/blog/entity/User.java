@@ -1,4 +1,4 @@
-package me.djyuning.blog.beans;
+package me.djyuning.blog.entity;
 
 public class User {
 

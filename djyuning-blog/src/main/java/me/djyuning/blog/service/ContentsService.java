@@ -1,6 +1,6 @@
 package me.djyuning.blog.service;
 
-import me.djyuning.blog.beans.Contents;
+import me.djyuning.blog.entity.Contents;
 import me.djyuning.blog.dao.ContentsDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

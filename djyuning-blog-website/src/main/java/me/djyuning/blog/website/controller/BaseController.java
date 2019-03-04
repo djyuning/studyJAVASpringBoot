@@ -1,6 +1,6 @@
 package me.djyuning.blog.website.controller;
 
-import me.djyuning.blog.entity.SessionApp;
+import me.djyuning.blog.beans.SessionApp;
 import me.djyuning.blog.service.CategoryService;
 
 import org.springframework.beans.factory.annotation.Autowired;

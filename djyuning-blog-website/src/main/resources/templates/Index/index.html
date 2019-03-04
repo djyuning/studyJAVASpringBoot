@@ -49,7 +49,7 @@
               <a th:href="${'/Article/detail/'+ article.id}">
                 <img class="img-responsive"
                      th:src="${article.cover}"
-                     th:alt="${article.title}"/>
+                     th:alt="${article.title}" />
               </a>
             </div>
             <h3 class="post-title">
@@ -86,6 +86,9 @@
         <ul class="pagination post-pagination">
           <li>
             <a>上一页</a>
+          </li>
+          <li th:each="p : ${#numbers.sequence(1, 8)}">
+            <a href="#" th:text="${p}"></a>
           </li>
           <li>
             <a href="#">下一页</a>

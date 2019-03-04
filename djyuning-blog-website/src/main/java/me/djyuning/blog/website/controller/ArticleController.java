@@ -1,7 +1,8 @@
 package me.djyuning.blog.website.controller;
 
-import me.djyuning.blog.beans.Contents;
+import me.djyuning.blog.entity.Contents;
 import me.djyuning.blog.service.ContentsService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,7 +33,7 @@ public class ArticleController extends BaseController {
 
         super.pageInit(request, page, model);
 
-        model.addAttribute("articles", new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12});
+        model.addAttribute("articles", contentsService.all());
 
         return "Article/index";
     }
