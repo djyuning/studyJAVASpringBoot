@@ -1,11 +1,12 @@
 package me.djyuning.blog.website.controller;
 
-
 import me.djyuning.blog.entity.Contents;
 import me.djyuning.blog.service.ContentsService;
+import me.djyuning.blog.website.utils.Pager;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.Page;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,8 +52,16 @@ public class IndexController extends BaseController {
         // 获取全部文章
         PageHelper.startPage(pageNow, 1);
         List<Contents> articles = contentsService.all();
-
         Page articlesPage = (Page) articles;
+
+        Pager pager = new Pager();
+        pager.setUrl(request.getRequestURI());
+        pager.setPageNow(pageNow);
+        pager.setPageSize(1);
+        pager.setPageNum(5);
+        pager.setRowsTotal(articlesPage.getTotal());
+        model.addAttribute("pager", pager.pageOut());
+
         model.addAttribute("articlesPage", articlesPage.getResult());
 
         model.addAttribute("articles", articles);

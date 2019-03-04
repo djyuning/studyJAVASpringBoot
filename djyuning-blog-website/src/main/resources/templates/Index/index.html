@@ -82,22 +82,7 @@
 
       </div>
 
-      <div class="text-center">
-        <ul class="pagination post-pagination">
-          <li>
-            <a>上一页</a>
-          </li>
-          <li th:each="p : ${#numbers.sequence(1, 8)}">
-            <a href="#" th:text="${p}"></a>
-          </li>
-          <li>
-            <a href="#">下一页</a>
-          </li>
-          <li>
-            <a th:text="${'共 '+ articlesPage.total +' 条数据 / '+ articlesPage.pages +' 页'}"></a>
-          </li>
-        </ul>
-      </div>
+      <div class="pagination-wrap text-center" th:utext="${pager}"></div>
 
     </div>
   </div>
