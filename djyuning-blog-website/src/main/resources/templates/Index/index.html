@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="Layout/main">
+      layout:decorate="~{Layout/main}">
 <head>
   <meta charset="UTF-8">
   <title th:text="${pageInfo.title}"></title>
@@ -15,18 +15,18 @@
       <div class="row">
         <div class="col-md-12">
           <div class="block">
-            <h2>We design delightful digital experiences.</h2>
-            <p>Read more about what we do and our philosophy of design. Judge for yourself The work and results <br>
-              we’ve achieved for other clients, and meet our highly experienced Team who just love to design.</p>
-            <a class="btn btn-main btn-solid-border" href="#">Tell Us Your Story</a>
+            <h2>设计驱动变革</h2>
+            <p>我们把深入的消费洞察转化为极致的用户体验，用创新设计驱动商业变革。</p>
+            <a class="btn btn-main btn-solid-border" href="#">即刻联系</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="page-wrapper" th:if="${#lists.isEmpty(articles)==false}">
+  <div class="page-wrapper">
     <div class="container">
+
       <div class="row">
 
         <div class="portfolio-menu">
@@ -41,53 +41,15 @@
         </div>
 
       </div>
-      <div class="row">
 
-        <div class="col-md-6" th:each="article : ${articles}">
-          <div class="post">
-            <div class="post-thumb">
-              <a th:href="${'/Article/detail/'+ article.id}">
-                <img class="img-responsive"
-                     th:src="${article.cover}"
-                     th:alt="${article.title}" />
-              </a>
-            </div>
-            <h3 class="post-title">
-              <a th:href="${'/Article/detail/'+ article.id}" th:text="${article.title}"></a>
-            </h3>
-            <div class="post-meta">
-              <ul>
-                <li>
-                  <i class="ion-calendar"></i>
-                  <span th:text="${article.created_at}"></span>
-                </li>
-                <li>
-                  <i class="ion-android-people"></i>
-                  <a th:href="${'/Author/'+ article.author.username}"
-                     th:text="${article.author.username}"></a>
-                </li>
-                <li>
-                  <i class="ion-pricetags"></i>
-                  <a th:href="${'/Category/'+ article.category.alias}"
-                     th:text="${article.category.name}"></a>
-                </li>
-              </ul>
-            </div>
-            <div class="post-content">
-              <p th:text="${article.overview}"></p>
-              <a th:href="${'/Article/detail/'+ article.id}" class="btn btn-main">阅读更多</a>
-            </div>
-          </div>
-        </div>
+      <div th:replace="Public/article_list::body"></div>
 
-      </div>
-
-      <div class="pagination-wrap text-center" th:utext="${pager}"></div>
+      <div class="pagination-wrap text-center" th:if="${#lists.isEmpty(articles) == false}"
+           th:utext="${pager}"></div>
 
     </div>
   </div>
 
 </th:block>
-
 </body>
 </html>

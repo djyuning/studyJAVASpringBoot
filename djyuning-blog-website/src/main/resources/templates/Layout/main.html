@@ -8,14 +8,14 @@
   <title th:text="${pageInfo.title}"></title>
   <link rel="shortcut icon" th:href="@{/favicon.ico}"/>
 
-  <link rel="stylesheet" th:href="@{'/plugins/bootstrap/css/bootstrap.min.css'}"/>
-  <link rel="stylesheet" th:href="@{'/plugins/Ionicons/css/ionicons.min.css'}"/>
-  <link rel="stylesheet" th:href="@{'/plugins/animate-css/animate.css'}"/>
-  <link rel="stylesheet" th:href="@{'/plugins/magnific-popup/dist/magnific-popup.css'}"/>
-  <link rel="stylesheet" th:href="@{'/plugins/slick-carousel/slick/slick.css'}"/>
-  <link rel="stylesheet" th:href="@{'/plugins/slick-carousel/slick/slick-theme.css'}"/>
+  <link rel="stylesheet" th:href="@{/static/plugins/bootstrap/css/bootstrap.min.css(v=${version})}"/>
+  <link rel="stylesheet" th:href="@{/static/plugins/Ionicons/css/ionicons.min.css(v=${version})}"/>
+  <link rel="stylesheet" th:href="@{/static/plugins/animate-css/animate.css(v=${version})}"/>
+  <link rel="stylesheet" th:href="@{/static/plugins/magnific-popup/dist/magnific-popup.css(v=${version})}"/>
+  <link rel="stylesheet" th:href="@{/static/plugins/slick-carousel/slick/slick.css(v=${version})}"/>
+  <link rel="stylesheet" th:href="@{/static/plugins/slick-carousel/slick/slick-theme.css(v=${version})}"/>
 
-  <link rel="stylesheet" th:href="${'/css/style.css'}"/>
+  <link rel="stylesheet" th:href="@{/static/css/style.css(v=${version})}"/>
 
   <th:block layout:fragment="extendStyle"></th:block>
 
@@ -89,17 +89,14 @@
   </div>
 </footer>
 
-<script th:src="${'/vendor/jQuery/1.12.4/jquery.min.js'}"></script>
-<script th:src="${'/plugins/bootstrap/js/bootstrap.min.js'}"></script>
-<script th:src="${'/plugins/slick-carousel/slick/slick.min.js'}"></script>
-<script th:src="${'/plugins/magnific-popup/dist/jquery.magnific-popup.min.js'}"></script>
-<script th:src="${'/plugins/mixitup/dist/mixitup.min.js'}"></script>
-<script th:src="${'/plugins/SyoTimer/build/jquery.syotimer.min.js'}"></script>
+<script th:src="${'/static/vendor/jQuery/1.12.4/jquery.min.js'}"></script>
+<script th:src="${'/static/plugins/bootstrap/js/bootstrap.min.js'}"></script>
+<script th:src="${'/static/plugins/slick-carousel/slick/slick.min.js'}"></script>
+<script th:src="${'/static/plugins/magnific-popup/dist/jquery.magnific-popup.min.js'}"></script>
+<script th:src="${'/static/plugins/mixitup/dist/mixitup.min.js'}"></script>
+<script th:src="${'/static/plugins/SyoTimer/build/jquery.syotimer.min.js'}"></script>
 
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.32/jquery.form.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.11.1/jquery.validate.min.js"></script>
-
-<script th:src="${'/js/script.js'}"></script>
+<script th:src="${'/static/js/script.js'}"></script>
 
 <th:block layout:fragment="extendScript"></th:block>
 

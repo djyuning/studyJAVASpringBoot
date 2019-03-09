@@ -2317,11 +2317,12 @@ font header .navbar-default .navbar-nav li a:hover {
 }
 
 .post-pagination {
-  margin-top: 70px;
+  display: flex;
+  justify-content: center;
 }
 
 .post-pagination > li {
-  margin: 0 2px;
+  margin: 4px;
   display: inline-block;
   font-size: 14px;
 }

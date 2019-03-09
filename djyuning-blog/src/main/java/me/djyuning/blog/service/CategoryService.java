@@ -18,7 +18,6 @@ public class CategoryService {
 
         try {
             Category[] result = categoryDao.all();
-
             if (result != null) {
                 categories = new Category[result.length];
                 for (int i = 0; i < result.length; i++) {
@@ -29,6 +28,28 @@ public class CategoryService {
             e.printStackTrace();
         }
         return categories;
+    }
+
+    // 根据 ID 获取指定分类
+    public Category getById(int id) {
+        Category category = null;
+        try {
+            category = categoryDao.getById(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return category;
+    }
+
+    // 根据别名获取指定分类
+    public Category getByAlias(String alias) {
+        Category category = null;
+        try {
+            category = categoryDao.getByAlias(alias);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return category;
     }
 
 }

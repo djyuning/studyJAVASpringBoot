@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{Layout/main}">
+<head>
+    <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<th:block layout:fragment="content">
+
+  <div class="page-wrapper">
+    <div class="container">
+
+      <div class="row">
+
+        <h1 th:text="${category.name}"></h1>
+        <p th:text="${category.remark}"></p>
+
+      </div>
+
+      <div th:replace="Public/article_list::body"></div>
+
+      <div class="pagination-wrap text-center" th:if="${#lists.isEmpty(articles) == false}"
+           th:utext="${pager}"></div>
+
+    </div>
+  </div>
+
+</th:block>
+</body>
+</html>

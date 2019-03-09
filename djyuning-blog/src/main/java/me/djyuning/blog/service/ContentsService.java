@@ -32,7 +32,21 @@ public class ContentsService {
         return contents;
     }
 
-    // 根据 ID 获取内容
+    // 根据 ID 获取全部集合
+    public List<Contents> allByCid(int cid) {
+        List<Contents> contents = new ArrayList<>();
+        try {
+            List<Contents> result = contentsDao.allByCid(cid);
+            if (result != null) {
+                contents = result;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return contents;
+    }
+
+    // 根据 ID 获取条目
     public Contents getById(int id) {
         Contents content = new Contents();
 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div class="row">
+
+  <div class="col-md-12" th:if="${#lists.isEmpty(articles) == true}">
+    <h1>暂无内容</h1>
+  </div>
+
+  <div>
+    <div class="col-md-6" th:if="${#lists.isEmpty(articles) == false}" th:each="article : ${articles}">
+      <div class="post">
+        <div class="post-thumb">
+          <a th:href="${'/Article/detail/'+ article.id}">
+            <img class="img-responsive"
+                 th:src="${article.cover}"
+                 th:alt="${article.title}"/>
+          </a>
+        </div>
+        <h3 class="post-title">
+          <a th:href="${'/Article/detail/'+ article.id}" th:text="${article.title}"></a>
+        </h3>
+        <div class="post-meta">
+          <ul>
+            <li>
+              <i class="ion-calendar"></i>
+              <span th:text="${article.created_at}"></span>
+            </li>
+            <li>
+              <i class="ion-android-people"></i>
+              <a th:href="${'/Author/'+ article.author.username}"
+                 th:text="${article.author.username}"></a>
+            </li>
+            <li>
+              <i class="ion-pricetags"></i>
+              <a th:href="${'/Category/'+ article.category.alias}"
+                 th:text="${article.category.name}"></a>
+            </li>
+          </ul>
+        </div>
+        <div class="post-content">
+          <p th:text="${article.overview}"></p>
+          <a th:href="${'/Article/detail/'+ article.id}" class="btn btn-main">阅读更多</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

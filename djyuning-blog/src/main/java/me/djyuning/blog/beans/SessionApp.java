@@ -1,7 +1,10 @@
 package me.djyuning.blog.beans;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 
+@Component
 public class SessionApp implements Serializable {
     // 序列化ID
     private static final long serialVersionUID = 8087173753716322056L;

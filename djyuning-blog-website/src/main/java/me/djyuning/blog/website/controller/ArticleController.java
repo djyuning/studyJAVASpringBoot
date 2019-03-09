@@ -39,7 +39,8 @@ public class ArticleController extends BaseController {
     }
 
     @RequestMapping("/detail/{id}")
-    public String detail(HttpServletRequest request, HttpServletResponse response, Model model, @PathVariable Integer id)  {
+    public String detail(HttpServletRequest request, HttpServletResponse response, Model model,
+                         @PathVariable Integer id)  {
         // 查询文章
         Contents article = contentsService.getById(id);
 

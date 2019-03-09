@@ -1,19 +1,18 @@
-# 服务器
-server:
-  port: 8084
-
 spring:
+  profiles:
+    active: pro
+
   application:
     name: djyuning-blog-website
+
   # 数据库配置
   datasource:
-    url: jdbc:mysql://localhost:3306/springboot_first?useUnicode=true&characterEncoding=utf8
     driver-class-name: com.mysql.jdbc.Driver
-    username: root
-    password: root
+
   # SESSION
   session:
     store-type: redis
+
   # redis
   redis:
     host: 127.0.0.1
@@ -23,3 +22,9 @@ spring:
 mybatis:
   type-aliases-package: me.djyuning.blog-website
   mapper-locations: classpath\:mapper/*.xml
+
+# 分页配置
+pager:
+  num: 5 # 每次显示 5 页
+  size: 4 # 每页显示 10 条数据
+  param: "p" # 地址栏取参数

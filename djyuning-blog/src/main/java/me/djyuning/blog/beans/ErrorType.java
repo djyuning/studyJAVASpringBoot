@@ -1,5 +1,8 @@
 package me.djyuning.blog.beans;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ErrorType {
     // 代码
     private Integer code;
@@ -7,6 +10,8 @@ public class ErrorType {
     private String title;
     // 描述
     private String description;
+
+    public ErrorType() {}
 
     public ErrorType(Integer code, String title, String description) {
         this.code = code;

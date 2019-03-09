@@ -18,4 +18,8 @@ public interface CategoryDao {
     @Select("SELECT * FROM category WHERE id=#{id}")
     Category getById(int id);
 
+    // 根据别名查找
+    @Select("SELECT * FROM category WHERE alias=#{alias}")
+    Category getByAlias(String alias);
+
 }

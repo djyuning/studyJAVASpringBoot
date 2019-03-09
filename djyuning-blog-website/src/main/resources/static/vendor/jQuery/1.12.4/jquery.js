@@ -4052,7 +4052,7 @@ jQuery.fn.extend( {
 			attrs = elem && elem.attributes;
 
 		// Special expections of .data basically thwart jQuery.access,
-		// so implement the relevant behavior ourselves
+		// so interceptor the relevant behavior ourselves
 
 		// Gets all values
 		if ( key === undefined ) {

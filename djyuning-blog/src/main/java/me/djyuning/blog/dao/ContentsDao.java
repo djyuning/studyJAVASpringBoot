@@ -24,6 +24,19 @@ public interface ContentsDao {
     })
     public List<Contents> all();
 
+    @Select("SELECT * FROM contents WHERE cid=#{cid} ORDER BY id DESC")
+    @Results({
+            // 关联查询分类
+            @Result(property = "category",
+                    column = "cid",
+                    one = @One(select = "me.djyuning.blog.dao.CategoryDao.getById")),
+            // 关联查询作者
+            @Result(property = "author",
+                    column = "aid",
+                    one = @One(select = "me.djyuning.blog.dao.UserDao.getById")),
+    })
+    public List<Contents> allByCid(int cid);
+
     @Select("SELECT * FROM contents WHERE id=#{id}")
     @Results({
             // 关联查询分类
