@@ -21,8 +21,6 @@ public class AboutController extends BaseController {
         page.put("title", "关于我");
         model.addAttribute("page", page);
 
-        super.pageInit(request, page, model);
-
         return "About/index";
     }
 

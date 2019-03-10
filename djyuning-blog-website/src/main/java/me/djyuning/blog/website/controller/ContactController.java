@@ -17,12 +17,6 @@ public class ContactController extends BaseController {
     @GetMapping("")
     public String index(HttpServletRequest request, HttpServletResponse response, Model model) {
 
-        Map<String, String> page = new HashMap<>();
-        page.put("title", "联系方式");
-        model.addAttribute("page", page);
-
-        super.pageInit(request, page, model);
-
         return "Contact/index";
     }
 

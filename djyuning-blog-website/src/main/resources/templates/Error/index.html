@@ -4,7 +4,7 @@
       layout:decorate="Layout/main">
 <head>
   <meta charset="UTF-8">
-  <title th:text="${pageInfo.title}"></title>
+  <title></title>
 </head>
 <body>
 <th:block layout:fragment="content">
@@ -28,9 +28,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <a href="index.html">
-            <img th:src="${'/images/logo.png'}" th:alt="${app.title}"/>
-          </a>
+          <a href="index.html"> </a>
           <h1 th:text="${status.code}"></h1>
           <h2 th:text="${status.title}"></h2>
           <p th:text="${status.description}"></p>

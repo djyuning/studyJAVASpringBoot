@@ -23,8 +23,6 @@ public class BaseErrorController extends BaseController implements ErrorControll
         page.put("title", "出错了");
         model.addAttribute("page", page);
 
-        super.pageInit(request, page, model);
-
         return "Error/index";
     }
 

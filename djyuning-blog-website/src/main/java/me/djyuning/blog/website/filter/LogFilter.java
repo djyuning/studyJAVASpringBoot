@@ -15,6 +15,9 @@ public class LogFilter implements Filter {
         long start = System.currentTimeMillis();
         filterChain.doFilter(servletRequest,servletResponse);
         System.out.println("Execute cost="+(System.currentTimeMillis()-start));
+
+        servletRequest.setAttribute("pageNow", 121231);
+
     }
 
     @Override

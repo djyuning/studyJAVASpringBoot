@@ -25,14 +25,6 @@ public class ArticleController extends BaseController {
     @GetMapping("")
     public String index(HttpServletRequest request, Model model) {
 
-        // 当前页面信息
-        Map<String, String> page = new HashMap<>();
-        page.put("title", "日志");
-
-        model.addAttribute("page", page);
-
-        super.pageInit(request, page, model);
-
         model.addAttribute("articles", contentsService.all());
 
         return "Article/index";
@@ -43,15 +35,7 @@ public class ArticleController extends BaseController {
                          @PathVariable Integer id)  {
         // 查询文章
         Contents article = contentsService.getById(id);
-
         model.addAttribute("article", article);
-
-        Map<String, String> page = new HashMap<>();
-        page.put("title", "日志");
-
-        model.addAttribute("page", page);
-
-        super.pageInit(request, page, model);
 
         return "Article/detail";
     }
