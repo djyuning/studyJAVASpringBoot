@@ -1,6 +1,7 @@
 # 服务器
 server:
   port: 8084
+
 # Spring
 spring:
   # 数据库配置

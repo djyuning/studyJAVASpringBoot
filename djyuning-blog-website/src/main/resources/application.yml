@@ -1,22 +1,19 @@
 spring:
   profiles:
-    active: pro
-
+    active: dev
   application:
     name: djyuning-blog-website
-
   # 数据库配置
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-
   # SESSION
   session:
     store-type: redis
-
   # redis
   redis:
     host: 127.0.0.1
     port: 6379
+    password: 123321
 
 # Mybatis 配置
 mybatis:

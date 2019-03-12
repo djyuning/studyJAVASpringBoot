@@ -3,26 +3,40 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{Layout/main}">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
   <title></title>
 </head>
 <body>
 <th:block layout:fragment="content">
 
-  <div class="page-wrapper">
+  <section class="call-to-action bg-1 section-sm overly" th:if="${category!= null}">
     <div class="container">
-
       <div class="row">
-
-        <h1 th:text="${category.name}"></h1>
-        <p th:text="${category.remark}"></p>
-
+        <div class="col-md-12">
+          <div class="block">
+            <h2 th:text="${category.name}"></h2>
+            <p th:text="${category.remark}"></p>
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <div class="page-wrapper" th:if="${category!= null}">
+    <div class="container">
 
       <div th:replace="Public/article_list::body"></div>
 
       <div class="pagination-wrap text-center" th:if="${#lists.isEmpty(articles) == false}"
            th:utext="${pager}"></div>
+
+    </div>
+  </div>
+
+  <div class="page-wrapper" th:if="${category == null}">
+    <div class="container">
+
+      <h1>查看的分类不存在</h1>
 
     </div>
   </div>
